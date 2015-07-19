@@ -3,7 +3,10 @@ module.exports = function(grunt) {
     // load tasks
     [
         'grunt-contrib-watch',
-        'grunt-contrib-less'
+        'grunt-contrib-less',
+        'grunt-express',
+        'grunt-open'
+
     ].forEach(function(task) { grunt.loadNpmTasks(task); });
 
 
@@ -11,7 +14,6 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        // compile LESS files in `less/` into CSS files
         less: {
             css: {
                 options: {
@@ -27,11 +29,31 @@ module.exports = function(grunt) {
                     }
                 ]
             }
+        },
+        express: {
+            all: {
+                options: {
+                    port: 10000,
+                    hostname: "localhost",
+                    bases: [__dirname]
+                }
+            }
+        },
+        open: {
+            all: {
+                path: 'http://localhost:<%= express.all.options.port%>'
+            }
         }
     });
 
     grunt.registerTask('default', [
         'less'
+    ]);
+
+    grunt.registerTask('server', [
+        'express',
+        'open',
+        'express-keepalive'
     ]);
 
 };
