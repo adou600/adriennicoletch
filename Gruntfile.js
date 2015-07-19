@@ -35,8 +35,23 @@ module.exports = function(grunt) {
                 options: {
                     port: 10000,
                     hostname: "localhost",
-                    bases: [__dirname]
+                    bases: [__dirname],
+                    livereload: true
                 }
+            }
+        },
+        watch: {
+            all: {
+                files: [
+                    'index.html',
+                    'less/*.less',
+                    'js/*.js',
+                    'img/*.png'
+                ],
+                options: {
+                    livereload: true
+                },
+                tasks: ['less']
             }
         },
         open: {
@@ -53,7 +68,7 @@ module.exports = function(grunt) {
     grunt.registerTask('server', [
         'express',
         'open',
-        'express-keepalive'
+        'watch'
     ]);
 
 };
