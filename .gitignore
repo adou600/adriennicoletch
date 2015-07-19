@@ -1,1 +1,6 @@
 .idea/
+node_modules/
+css/freelancer.css
+css/mixins.css
+css/variables.css
+less/*.css
