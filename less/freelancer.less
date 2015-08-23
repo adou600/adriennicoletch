@@ -18,8 +18,16 @@ a:hover,
 a:focus,
 a:active,
 a.active {
-	color: @brand-success;
-	outline: none;
+  color: @brand-success;
+  outline: none;
+}
+
+a:hover,
+a:focus,
+a:active,
+a.active {
+  color: @brand-success !important;
+  outline: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -200,7 +208,7 @@ section.success {
 	&:focus,
 	&:active,
 	&.active {
-		color: @brand-success;
+		color: @brand-success; //web logo hover
 		background: white;
 		border: solid 2px white;
 	}
@@ -296,6 +304,17 @@ footer {
 .btn:active,
 .btn.active {
 	outline: none;
+}
+
+.btn-success {
+  color: #ffffff;
+  background-color: @brand-success;
+  border-color: @brand-success;
+}
+
+.btn:hover {
+  background-color: @brand-success * 1.1;
+  border-color: @brand-success * 1.1;
 }
 
 .scroll-top {
