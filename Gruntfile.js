@@ -4,6 +4,7 @@ module.exports = function(grunt) {
     [
         'grunt-contrib-watch',
         'grunt-contrib-less',
+        'grunt-contrib-copy',
         'grunt-express',
         'grunt-open'
 
@@ -14,6 +15,15 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
+        copy: {
+            build: {
+                cwd: 'src',
+                src: [ 'index.html', 'css/**', 'font-awesome/**', 'fonts/**', 'img/**', 'js/**', 'mail/**' ],
+                dest: 'dist',
+                expand: true
+            }
+        },
+
         less: {
             css: {
                 options: {
@@ -22,9 +32,9 @@ module.exports = function(grunt) {
                 files: [
                     {
                         expand: true,
-                        cwd: 'less',
+                        cwd: 'src/less',
                         src: ['*.less'],
-                        dest: 'css/',
+                        dest: 'src/css/',
                         ext: '.css'
                     }
                 ]
@@ -43,10 +53,10 @@ module.exports = function(grunt) {
         watch: {
             all: {
                 files: [
-                    'index.html',
-                    'less/*.less',
-                    'js/*.js',
-                    'img/*.png'
+                    'src/index.html',
+                    'src/less/*.less',
+                    'src/js/*.js',
+                    'src/img/*.png'
                 ],
                 options: {
                     livereload: true
