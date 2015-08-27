@@ -68,6 +68,11 @@ hr.star-primary:after {
 .img-centered {
   margin: 0 auto;
 }
+.alert-success {
+  background-color: #3fb0ac;
+  border-color: #3fb0ac;
+  color: #ffffff;
+}
 header {
   text-align: center;
   background: #3fb0ac;

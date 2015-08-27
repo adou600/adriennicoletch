@@ -5,6 +5,7 @@ module.exports = function(grunt) {
         'grunt-contrib-watch',
         'grunt-contrib-less',
         'grunt-contrib-copy',
+        'grunt-contrib-clean',
         'grunt-express',
         'grunt-open'
 
@@ -21,6 +22,12 @@ module.exports = function(grunt) {
                 src: [ 'index.html', 'css/**', 'font-awesome/**', 'fonts/**', 'img/**', 'js/**', 'mail/**' ],
                 dest: 'dist',
                 expand: true
+            }
+        },
+
+        clean: {
+            build: {
+                src: [ 'dist' ]
             }
         },
 
@@ -80,5 +87,11 @@ module.exports = function(grunt) {
         'open',
         'watch'
     ]);
+
+    grunt.registerTask(
+        'build',
+        'Compiles all of the assets and copies the files to the build directory.',
+        [ 'clean', 'copy' ]
+    );
 
 };
