@@ -52,7 +52,7 @@ module.exports = function(grunt) {
                 options: {
                     port: 10000,
                     hostname: "localhost",
-                    bases: [__dirname],
+                    bases: [__dirname] + "/src",
                     livereload: true
                 }
             }
